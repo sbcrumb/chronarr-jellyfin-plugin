@@ -26,7 +26,8 @@ The Chronarr plugin syncs PremiereDate to DateCreated for TV episodes and movies
 
 ## Support
 
-For issues and support, please visit the main Chronarr project repository.
+For issues and support, please visit the main Chronarr project repository
+https://github.com/sbcrumb/chronarr
 
 ## License
 
