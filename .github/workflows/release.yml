@@ -1,0 +1,66 @@
+name: Create Release from ZIP
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on version tags like v2.0.0.0
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Extract version from tag
+      id: get_version
+      run: |
+        # Remove 'v' prefix from tag to get version (e.g., v2.0.0.0 -> 2.0.0.0)
+        VERSION=${GITHUB_REF#refs/tags/v}
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "Version: $VERSION"
+
+    - name: Verify ZIP exists
+      run: |
+        VERSION=${{ steps.get_version.outputs.version }}
+        if [ ! -f "releases/v$VERSION/chronarr-jellyfin-plugin_$VERSION.zip" ]; then
+          echo "Error: ZIP file not found at releases/v$VERSION/chronarr-jellyfin-plugin_$VERSION.zip"
+          echo "Please build and commit the ZIP file before creating a release tag"
+          exit 1
+        fi
+        echo "✓ ZIP file found"
+
+    - name: Calculate MD5 checksum
+      id: checksum
+      run: |
+        VERSION=${{ steps.get_version.outputs.version }}
+        CHECKSUM=$(md5sum releases/v$VERSION/chronarr-jellyfin-plugin_$VERSION.zip | awk '{print $1}')
+        echo "checksum=$CHECKSUM" >> $GITHUB_OUTPUT
+        echo "MD5 Checksum: $CHECKSUM"
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: Chronarr Jellyfin Plugin v${{ steps.get_version.outputs.version }}
+        body: |
+          ## Chronarr Jellyfin Plugin v${{ steps.get_version.outputs.version }}
+
+          ### Installation
+          This release is automatically included in the Chronarr plugin repository manifest.
+
+          To install:
+          1. Add repository URL to Jellyfin: `https://raw.githubusercontent.com/sbcrumb/chronarr-jellyfin-plugin/main/manifest.json`
+          2. Install from Jellyfin plugin catalog
+
+          ### Checksums
+          - **MD5**: `${{ steps.checksum.outputs.checksum }}`
+
+          ### Files
+          - `chronarr-jellyfin-plugin_${{ steps.get_version.outputs.version }}.zip` - Plugin DLL package
+        files: |
+          releases/v${{ steps.get_version.outputs.version }}/chronarr-jellyfin-plugin_${{ steps.get_version.outputs.version }}.zip
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
