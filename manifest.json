@@ -6,6 +6,7 @@
         "description": "Synchronizes TV episode and movie DateCreated to preserve import dates in Jellyfin",
         "owner": "sbcrumb",
         "overview": "This plugin automatically syncs PremiereDate to DateCreated for TV episodes and movies to ensure Jellyfin displays the correct import date from the Chronarr database instead of scan dates.",
+        "imageUrl": "https://raw.githubusercontent.com/sbcrumb/chronarr-jellyfin-plugin/main/chronarr.jpg",
         "versions": [
             {
                 "version": "2.0.2.0",
