@@ -9,6 +9,14 @@
         "imageUrl": "https://raw.githubusercontent.com/sbcrumb/chronarr-jellyfin-plugin/main/chronarr.jpg",
         "versions": [
             {
+                "version": "2.0.9.0",
+                "changelog": "Security: Brought license handling in line with the Emby plugin — RSA-signed validation responses, certificate pinning, a bounded/signed offline grace period, rate-limited check-ins, and platform identification. Removed unreliable anti-debug checks that could misfire on long-running servers.",
+                "targetAbi": "10.8.0.0",
+                "sourceUrl": "https://github.com/sbcrumb/chronarr-jellyfin-plugin/releases/download/v2.0.9.0/chronarr-jellyfin-plugin_2.0.9.0.zip",
+                "checksum": "16f12fd9c879c374b47fae5967af1edd",
+                "timestamp": "2026-06-08 00:00:00"
+            },
+            {
                 "version": "2.0.2.0",
                 "changelog": "Fix: Real-time sync thread affinity issue resolved; Changed async void event handler pattern to prevent silent failures",
                 "targetAbi": "10.8.0.0",

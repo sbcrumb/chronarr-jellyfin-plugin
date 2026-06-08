@@ -1,3 +1,6 @@
+# Local security notes (not for repo)
+security.md
+
 # Build artifacts
 bin/
 obj/
