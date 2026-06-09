@@ -9,6 +9,14 @@
         "imageUrl": "https://raw.githubusercontent.com/sbcrumb/chronarr-jellyfin-plugin/main/chronarr.jpg",
         "versions": [
             {
+                "version": "2.0.14.0",
+                "changelog": "Fix: Crash on Jellyfin 10.11.x eliminated. The series DateLastMediaAdded updater called ILibraryManager.GetItemList() which was removed in Jellyfin 10.11; replaced with QueryItems().Items which exists in all supported versions. This was causing Jellyfin to crash with a fatal MissingMethodException every time the real-time series date debounce timer fired, preventing DateLastMediaAdded from ever being updated.",
+                "targetAbi": "10.8.0.0",
+                "sourceUrl": "https://github.com/sbcrumb/chronarr-jellyfin-plugin/releases/download/v2.0.14.0/chronarr-jellyfin-plugin_2.0.14.0.zip",
+                "checksum": "aa2885d4357355baa2e8dac33a15049a",
+                "timestamp": "2026-06-09 00:00:00"
+            },
+            {
                 "version": "2.0.13.0",
                 "changelog": "Fix: Re-added or refreshed TV series no longer float to the top of Recently Added after Chronarr corrects episode dates. The plugin now updates Series.DateLastMediaAdded to the max episode DateCreated after each real-time sync (debounced 30s per series) and at the end of each scheduled task run. Fix: Dates from the Chronarr database are now treated as UTC, preventing a 4-5 hour timezone offset that caused unnecessary re-syncs on every library refresh.",
                 "targetAbi": "10.8.0.0",
