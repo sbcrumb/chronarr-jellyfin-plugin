@@ -9,6 +9,14 @@
         "imageUrl": "https://raw.githubusercontent.com/sbcrumb/chronarr-jellyfin-plugin/main/chronarr.jpg",
         "versions": [
             {
+                "version": "2.0.12.0",
+                "changelog": "Fix: 'Missing season or episode number' no longer appears in Failed Syncs. These were always transient — caused by Jellyfin's Season Unknown state during library refreshes, not real failures. The correctly-matched episode fires its own event and syncs normally. Retry logic is preserved for genuine new-import timing races.",
+                "targetAbi": "10.8.0.0",
+                "sourceUrl": "https://github.com/sbcrumb/chronarr-jellyfin-plugin/releases/download/v2.0.12.0/chronarr-jellyfin-plugin_2.0.12.0.zip",
+                "checksum": "8322b3bedf25ca02be3ba9f834b3bdf1",
+                "timestamp": "2026-06-09 00:00:00"
+            },
+            {
                 "version": "2.0.11.0",
                 "changelog": "Fix: Real-time sync no longer floods Failed Syncs with virtual/placeholder episodes — Jellyfin guide data entries for episodes not yet on disk are now silently skipped. Fix: Real-time sync now retries up to 3 times (30s apart) when a newly-added episode or movie is missing season/episode numbers or IMDB ID due to metadata not being ready yet, preventing false failure entries for legitimate new imports. Security: Admin-only authorization added to the Failed Syncs API; IMDB IDs are validated before use in lookup URLs. Fix: License manager now disposes cleanly on plugin reload with no leaked timers or connections; uses Jellyfin's supported server-ID API. Fix: Exceptions are no longer silently dropped in several error paths.",
                 "targetAbi": "10.8.0.0",
