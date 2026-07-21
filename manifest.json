@@ -12,7 +12,7 @@
                 "version": "2.0.15.0",
                 "changelog": "Fix: Removed TLS certificate pinning — the pinned leaf cert hash expired, breaking license check-ins for all users. License responses are already protected by RSA signature verification, making cert pinning redundant. Standard TLS CA validation is now used, which will not break on routine certificate renewals.",
                 "targetAbi": "10.8.0.0",
-                "sourceUrl": "https://github.com/sbcrumb/chronarr-jellyfin-plugin/releases/download/v2.0.15.0/chronarr-jellyfin-plugin_2.0.15.0.zip",
+                "sourceUrl": "https://github.com/sbcrumb/chronarr-jellyfin-plugin/releases/download/v2.0.15.0/chronarr-jellyfin-plugin-2.0.15.0.zip",
                 "checksum": "ca688384d2ec7079715850576f848426",
                 "timestamp": "2026-07-21 00:00:00"
             },
