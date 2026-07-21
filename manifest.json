@@ -9,6 +9,14 @@
         "imageUrl": "https://raw.githubusercontent.com/sbcrumb/chronarr-jellyfin-plugin/main/chronarr.jpg",
         "versions": [
             {
+                "version": "2.0.15.0",
+                "changelog": "Fix: Removed TLS certificate pinning — the pinned leaf cert hash expired, breaking license check-ins for all users. License responses are already protected by RSA signature verification, making cert pinning redundant. Standard TLS CA validation is now used, which will not break on routine certificate renewals.",
+                "targetAbi": "10.8.0.0",
+                "sourceUrl": "https://github.com/sbcrumb/chronarr-jellyfin-plugin/releases/download/v2.0.15.0/chronarr-jellyfin-plugin_2.0.15.0.zip",
+                "checksum": "ca688384d2ec7079715850576f848426",
+                "timestamp": "2026-07-21 00:00:00"
+            },
+            {
                 "version": "2.0.14.0",
                 "changelog": "Fix: Crash on Jellyfin 10.11.x eliminated. The series DateLastMediaAdded updater called ILibraryManager.GetItemList() which was removed in Jellyfin 10.11; replaced with QueryItems().Items which exists in all supported versions. This was causing Jellyfin to crash with a fatal MissingMethodException every time the real-time series date debounce timer fired, preventing DateLastMediaAdded from ever being updated.",
                 "targetAbi": "10.8.0.0",
