@@ -9,6 +9,14 @@
         "imageUrl": "https://raw.githubusercontent.com/sbcrumb/chronarr-jellyfin-plugin/main/chronarr.jpg",
         "versions": [
             {
+                "version": "2.0.16.0",
+                "changelog": "Fix: License validation now retries every hour when invalid (previously waited the full 23-hour interval), allowing the plugin to self-heal after a transient server outage. Refactor: Removed NFO file dependency — date lookups now go directly to the Chronarr database without requiring a sidecar NFO file to exist. Movies without an IMDb ID in the filename fall back to reading the ID from movie.nfo content only.",
+                "targetAbi": "10.8.0.0",
+                "sourceUrl": "https://github.com/sbcrumb/chronarr-jellyfin-plugin/releases/download/v2.0.16.0/chronarr-jellyfin-plugin-2.0.16.0.zip",
+                "checksum": "5396ae565cb5247de4464bffb0b291cb",
+                "timestamp": "2026-07-22 00:00:00"
+            },
+            {
                 "version": "2.0.15.0",
                 "changelog": "Fix: Removed TLS certificate pinning — the pinned leaf cert hash expired, breaking license check-ins for all users. License responses are already protected by RSA signature verification, making cert pinning redundant. Standard TLS CA validation is now used, which will not break on routine certificate renewals.",
                 "targetAbi": "10.8.0.0",
