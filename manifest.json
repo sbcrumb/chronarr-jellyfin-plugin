@@ -13,7 +13,7 @@
                 "changelog": "Fix: License validation now retries every hour when invalid (previously waited the full 23-hour interval), allowing the plugin to self-heal after a transient server outage. Refactor: Removed NFO file dependency — date lookups now go directly to the Chronarr database without requiring a sidecar NFO file to exist. Movies without an IMDb ID in the filename fall back to reading the ID from movie.nfo content only.",
                 "targetAbi": "10.8.0.0",
                 "sourceUrl": "https://github.com/sbcrumb/chronarr-jellyfin-plugin/releases/download/v2.0.16.0/chronarr-jellyfin-plugin_2.0.16.0.zip",
-                "checksum": "e08d72d1e52c6366ccfe8b098181a2d2",
+                "checksum": "90fee15f48ec8dbe360d534ff468d1c6",
                 "timestamp": "2026-07-22 00:00:00"
             },
             {
